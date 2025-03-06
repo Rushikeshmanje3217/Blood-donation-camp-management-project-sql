@@ -1,0 +1,7 @@
+ insert into d_mobile_no values(8564875620,369);
+ insert into d_mobile_no values(8064875621,369);
+ insert into d_mobile_no values(9564875628,895);
+ insert into d_mobile_no values(7774875623,256);
+ insert into d_mobile_no values(8802487522,987);
+insert into d_mobile_no values(8560075621,987);
+ insert into d_mobile_no values(8025654620,186);

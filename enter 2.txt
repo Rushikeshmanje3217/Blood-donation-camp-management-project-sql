@@ -1,0 +1,201 @@
+Enter password: *************
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 25
+Server version: 8.0.32 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2023, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> select * from patieny;
+ERROR 1046 (3D000): No database selected
+mysql> use patient;
+Database changed
+mysql> select * from patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> use patient;
+Database changed
+mysql> select * from patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> select * from patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> desc patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> desc table patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> show databases;
++--------------------+
+| Database           |
++--------------------+
+| bank               |
+| bb_mobile_no       |
+| blood_bank         |
+| d_mobile_no        |
+| dept               |
+| donor              |
+| emp                |
+| employee           |
+| information_schema |
+| mysql              |
+| p_mobile_no        |
+| patient            |
+| performance_schema |
+| sahil              |
+| sakila             |
+| sys                |
+| traveller          |
+| world              |
++--------------------+
+18 rows in set (0.01 sec)
+
+mysql> desc table patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> use patient;
+Database changed
+mysql> select * from patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> desc patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> patient;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'patient' at line 1
+mysql> show patient;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'patient' at line 1
+mysql> desc table donor;
+ERROR 1146 (42S02): Table 'patient.donor' doesn't exist
+mysql> use donor;
+Database changed
+mysql> select * from donor;
++-----+---------+------+---------+-------------+-----------+------------+
+| did | dname   | dage | dweight | d_blood_grp | d_disease | d_dob      |
++-----+---------+------+---------+-------------+-----------+------------+
+| 186 | RAUNAK  |   43 |      50 | A-          | NONE      | 1980-02-15 |
+| 256 | KABIR   |   24 |      35 | B+          | NONE      | 1990-12-12 |
+| 369 | SUDHIR  |   23 |      40 | O+          | NONE      | 1999-06-20 |
+| 895 | ANANYA  |   42 |      45 | AB+         | NONE      | 1980-06-01 |
+| 987 | SUBADHA |   32 |      38 | O+          | NONE      | 1990-05-06 |
++-----+---------+------+---------+-------------+-----------+------------+
+5 rows in set (0.00 sec)
+
+mysql> use patient;
+Database changed
+mysql> select * from patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> ;
+ERROR:
+No query specified
+
+mysql> select * from patient;
+ERROR 1146 (42S02): Table 'patient.patient' doesn't exist
+mysql> use donor;
+Database changed
+mysql> desc table donor;
++----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | donor | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    5 |   100.00 | NULL  |
++----+-------------+-------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> desc table patient;
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | patient | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    7 |   100.00 | NULL  |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.00 sec)
+
+mysql> desc table blood_bank;
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table      | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | blood_bank | NULL       | ALL  | NULL          | NULL | NULL    | NULL |    1 |   100.00 | NULL  |
++----+-------------+------------+------------+------+---------------+------+---------+------+------+----------+-------+
+1 row in set, 1 warning (0.01 sec)
+
+mysql> insrt insert into blood_bank values(474,'Ashirwad blood bank','dadar',7774,256);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insrt insert into blood_bank values(474,'Ashirwad blood bank','dadar',7774,256)' at line 1
+mysql> insrt into blood_bank values(474,'Ashirwad blood bank','dadar',7774,256);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'insrt into blood_bank values(474,'Ashirwad blood bank','dadar',7774,256)' at line 1
+mysql> insert into blood_bank values(474,'Ashirwad blood bank','dadar',7774,256);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into blood_bank values(514,'Holy family hosp blood bank','bandra',7771,369);
+ERROR 1406 (22001): Data too long for column 'bb_name' at row 1
+mysql> insert into blood_bank values(514,'Holy hosp blood bank','bandra',7771,369);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into blood_bank values(429,'G.T.hosp blood bank','parel',7776,987);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into blood_bank values(429,'K.E. blood bank','dhule',7770,256);
+ERROR 1062 (23000): Duplicate entry '429' for key 'blood_bank.PRIMARY'
+mysql> insert into blood_bank values(298,'K.E. blood bank','dhule',7770,256);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into blood_bank values(915,'j.j.hosp. blood bank','byculla',7773,987);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into blood_bank values(310,'R.R.blood bank','dadar',7775,186);
+ERROR 1062 (23000): Duplicate entry 'dadar' for key 'blood_bank.bb_add'
+mysql> insert into blood_bank values(310,'R.R.blood bank','thane',7775,186);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into blood_bank values(268,'s.t.blood bank','pune',7772,895);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from blood_bank;
++----------+----------------------+---------+------+------+
+| bb_regno | bb_name              | bb_add  | pid  | did  |
++----------+----------------------+---------+------+------+
+|      268 | s.t.blood bank       | pune    | 7772 |  895 |
+|      298 | K.E. blood bank      | dhule   | 7770 |  256 |
+|      310 | R.R.blood bank       | thane   | 7775 |  186 |
+|      429 | G.T.hosp blood bank  | parel   | 7776 |  987 |
+|      474 | Ashirwad blood bank  | dadar   | 7774 |  256 |
+|      514 | Holy hosp blood bank | bandra  | 7771 |  369 |
+|      915 | j.j.hosp. blood bank | byculla | 7773 |  987 |
++----------+----------------------+---------+------+------+
+7 rows in set (0.00 sec)
+
+mysql> insert into bb_mobile_no values(9564875624,474);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> insert into bb_mobile_no values(9632417894,514);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bb_mobile_no values(8963524176,514);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bb_mobile_no values(7562146255,429);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bb_mobile_no values(8126516264,298);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bb_mobile_no values(9235452122,915);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bb_mobile_no values(8928112478,310);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> insert into bb_mobile_no values(9654658754,268);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from bb_mobile_no;
++------------+----------+
+| bb_mno     | bb_regno |
++------------+----------+
+| 9564875624 |      474 |
+| 9632417894 |      514 |
+| 8963524176 |      514 |
+| 7562146255 |      429 |
+| 8126516264 |      298 |
+| 9235452122 |      915 |
+| 8928112478 |      310 |
+| 9654658754 |      268 |
++------------+----------+
+8 rows in set (0.00 sec)
